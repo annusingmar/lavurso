@@ -9,6 +9,8 @@ services:
       - ./data:/var/lib/postgresql/data
   backend:
     image: lavurso-backend
+    depends_on:
+      - database
     container_name: lavurso-backend
     restart: unless-stopped
     build: ./lavurso-backend
