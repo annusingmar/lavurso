@@ -4,11 +4,10 @@ services:
     container_name: postgres
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: postgres_pwd
     volumes:
       - ./data:/var/lib/postgresql/data
   backend:
-    image: lavurso-backend
     depends_on:
       - database
     container_name: lavurso-backend
@@ -17,7 +16,6 @@ services:
     ports:
       - 127.0.0.1:8888:8080
   frontend:
-    image: lavurso-frontend
     container_name: lavurso-frontend
     restart: unless-stopped
     build: ./lavurso-frontend
