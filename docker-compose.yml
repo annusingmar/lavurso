@@ -1,6 +1,6 @@
 services:
   database:
-    image: postgres:15beta3-alpine
+    image: postgres:15-alpine
     container_name: postgres
     restart: unless-stopped
     environment:
@@ -19,7 +19,5 @@ services:
     container_name: lavurso-frontend
     restart: unless-stopped
     build: ./lavurso-frontend
-#   volumes:
-#     - ./lavurso-frontend:/app
     ports:
       - 127.0.0.1:9000:9000
