@@ -12,12 +12,17 @@ services:
       - database
     container_name: lavurso-backend
     restart: unless-stopped
-    build: ./lavurso-backend
+    build: 
+      context: ./lavurso-backend
+      args:
+       POSTGRES_PASSWORD: lavurso_pwd
+       POSTGRES_USER: lavurso
+       POSTGRES_DATABASE: lavurso
     ports:
-      - 127.0.0.1:8888:8080
+      - 8888:8080
   frontend:
     container_name: lavurso-frontend
     restart: unless-stopped
     build: ./lavurso-frontend
     ports:
-      - 127.0.0.1:9000:9000
+      - 9000:9000
