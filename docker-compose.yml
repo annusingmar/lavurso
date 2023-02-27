@@ -4,7 +4,7 @@ services:
     container_name: postgres
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: postgres_pwd
+      POSTGRES_PASSWORD: postgres_pwd # why do you exist
     volumes:
       - ./data:/var/lib/postgresql/data
   backend:
@@ -12,17 +12,22 @@ services:
       - database
     container_name: lavurso-backend
     restart: unless-stopped
-    build: 
-      context: ./lavurso-backend
-      args:
-       POSTGRES_PASSWORD: lavurso_pwd
-       POSTGRES_USER: lavurso
-       POSTGRES_DATABASE: lavurso
+    build: ./lavurso-backend
+    environment:
+      WEB_LISTEN: 0.0.0.0:8080
+      WEB_CORS_ALLOWED_ORIGINS: http://localhost:9000 # this is your public facing front-end URI eg. https://lavurso.org
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_USER: lavurso
+      DATABASE_PASSWORD: lavurso_pwd
+      DATABASE_NAME: lavurso
     ports:
       - 8888:8080
   frontend:
     container_name: lavurso-frontend
     restart: unless-stopped
     build: ./lavurso-frontend
+    environment:
+      API_URL: http://localhost:8888 # This is your (public) back-end url
     ports:
       - 9000:9000
