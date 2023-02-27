@@ -11,7 +11,7 @@ Vajalik tarkvara
 Jooksuta käsureal
 
 ```
-git clone –recurse-submodules git@github.com:annusingmar/lavurso.git
+git clone –recurse-submodules --remote-submodules git@github.com:annusingmar/lavurso.git
 ```
 <!-- Märge arendajale - ssh asemel võiks kastuada https, kuid https autenteerimine on raskem kui ssh-ga -->
 
