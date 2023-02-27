@@ -6,7 +6,7 @@ Vajalik tarkvara
 
 - `git`
 - `docker`
-- `docker-compose`
+- `docker-compose-plugin`
 
 Jooksuta käsureal
 
@@ -15,16 +15,16 @@ git clone –recurse-submodules git@github.com:annusingmar/lavurso.git
 ```
 <!-- Märge arendajale - ssh asemel võiks kastuada https, kuid https autenteerimine on raskem kui ssh-ga -->
 
-Seejärel jooksuta veebiserverit
+Seejärel jooksuta rakendust
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 
 ### [front-end](https://github.com/annusingmar/lavurso-frontend)
 
-loodud [Vue](https://vuejs.org/) ja [Quasar'iga](https://quasar.dev/)
+loodud [Vue'](https://vuejs.org/) ja [Quasariga](https://quasar.dev/)
 
 ---
 
