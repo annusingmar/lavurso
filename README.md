@@ -6,20 +6,21 @@ Vajalik tarkvara
 
 - `git`
 - `docker`
-- `docker-compose-plugin`
+- `docker-compose-plugin` (osal süsteemidest `docker-compose`)
 
 Jooksuta käsureal
 
 ```
-git clone –recurse-submodules --remote-submodules git@github.com:annusingmar/lavurso.git
+git clone --recurse-submodules --remote-submodules git@github.com:annusingmar/lavurso.git
 ```
 <!-- Märge arendajale - ssh asemel võiks kastuada https, kuid https autenteerimine on raskem kui ssh-ga -->
 
-Seejärel jooksuta rakendust
+Seejärel jooksuta rakendust (osal süsteemidest on `docker compose` asemel `docker-compose`)
 
 ```
 docker compose up -d
 ```
+
 
 
 ### [front-end](https://github.com/annusingmar/lavurso-frontend)
