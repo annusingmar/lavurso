@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     build: ./lavurso-backend
     environment:
-      BACKEND_CORS_EXTRA_ALLOWED_ORIGIN: http://debian.local:9000 # this is your public facing front-end URI eg. https://lavurso.org
+      BACKEND_CORS_EXTRA_ALLOWED_ORIGIN: http://localhost:9000 # this is your public facing front-end URI eg. https://lavurso.org
       POSTGRES_PASSWORD: lavurso_pwd
       POSTGRES_USER: lavurso
       POSTGRES_DATABASE: lavurso
@@ -25,6 +25,6 @@ services:
     restart: unless-stopped
     build: ./lavurso-frontend
     environment:
-      BACKEND_URI: http://debian.local:8888 # This is your back-end url,
+      BACKEND_URI: http://localhost:8888 # This is your (public) back-end url
     ports:
       - 9000:9000 # changing public facing port requires changing BACKEND_CORS_EXTRA_ALLOWED_ORIGIN port / omitting it
