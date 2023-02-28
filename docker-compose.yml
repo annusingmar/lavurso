@@ -1,10 +1,12 @@
 services:
   database:
     image: postgres:15-alpine
-    container_name: postgres
+    container_name: lavurso-database
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: postgres_pwd
+      POSTGRES_USER: lavurso
+      POSTGRES_PASSWORD: lavurso_pwd
+      POSTGRES_DB: lavurso
     volumes:
       - ./data:/var/lib/postgresql/data
   backend:
@@ -21,6 +23,9 @@ services:
       DATABASE_USER: lavurso
       DATABASE_PASSWORD: lavurso_pwd
       DATABASE_NAME: lavurso
+    # Docker image specific:
+    # NO_MIGRATE=true
+    # MIGRATE_TO=last
     ports:
       - 8888:8080
   frontend:
@@ -29,6 +34,7 @@ services:
     container_name: lavurso-frontend
     restart: unless-stopped
     build: ./lavurso-frontend
+    init: true
     environment:
       APP_URL: http://localhost:8888 # This is your (public) back-end URL
     ports:

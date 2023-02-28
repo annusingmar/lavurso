@@ -15,6 +15,8 @@ git clone --recurse-submodules --remote-submodules git@github.com:annusingmar/la
 ```
 <!-- Märge arendajale - ssh asemel võiks kastuada https, kuid https autenteerimine on raskem kui ssh-ga -->
 
+Muuda vastavalt vajadusele faili `docker-compose.yml` (kindlasti `POSTGRES_PASSWORD` ja `DATABASE_PASSWORD`)
+
 Seejärel jooksuta rakendust (osal süsteemidest on `docker compose` asemel `docker-compose`)
 
 ```
