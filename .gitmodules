@@ -1,8 +1,8 @@
 [submodule "lavurso-frontend"]
 	path = lavurso-frontend
-	url = git@github.com:annusingmar/lavurso-frontend.git
+	url = https://github.com/annusingmar/lavurso-frontend.git
 	branch = main
 [submodule "lavurso-backend"]
 	path = lavurso-backend
-	url = git@github.com:annusingmar/lavurso-backend.git
+	url = https://github.com/annusingmar/lavurso-backend.git
 	branch = main
