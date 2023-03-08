@@ -14,12 +14,23 @@ Jooksuta käsureal
 git clone --recurse-submodules --remote-submodules https://github.com/annusingmar/lavurso.git
 ```
 
-Muuda vastavalt vajadusele faili `docker-compose.yml` (kindlasti `POSTGRES_PASSWORD` ja `DATABASE_PASSWORD`)
+Muuda vastavalt vajadusele faili `docker-compose.yml` (kindlasti muuda `POSTGRES_PASSWORD` ja `DATABASE_PASSWORD`, peavad olema samad)
 
 Seejärel jooksuta rakendust (osal süsteemidest on `docker compose` asemel `docker-compose`)
 
 ```
 docker compose up -d
+```
+
+### Uuendamine
+
+Jooksuta käsureal
+
+```shell
+git pull
+git submodule update --recursive --remote
+docker compose down
+docker compose up -d --build --force-recreate
 ```
 ---
 Peale esmast käivitamist saab sisse logida e-postiga `admin@example.com` ja parooliga `adminPassword` ning seejärel tuleb muuta parool, mida saab teha kas külgribalt "Profiil" alt või administraatori kasutajate haldamise lehelt, külgribal "Kasutajad".
