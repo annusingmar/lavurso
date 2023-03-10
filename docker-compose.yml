@@ -36,6 +36,6 @@ services:
     build: ./lavurso-frontend
     init: true
     environment:
-      APP_URL: http://localhost:8888 # This is your (public) back-end URL
+      API_URL: http://localhost:8888 # This is your (public) back-end URL
     ports:
       - 9000:9000 # changing public facing port requires changing WEB_CORS_ALLOWED_ORIGINS
