@@ -21,6 +21,7 @@ Seejärel jooksuta rakendust (osal süsteemidest on `docker compose` asemel `doc
 ```
 docker compose up -d
 ```
+Mõne hetke pärast on rakendus kättesaadav aadressil http://localhost:9000
 
 ### Uuendamine
 
