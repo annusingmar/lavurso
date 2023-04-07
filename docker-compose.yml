@@ -1,4 +1,13 @@
 services:
+  proxy:
+    image: nginx
+    volumes:
+      - ./proxy_config.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9000:9000"
+    depends_on:
+      - backend
+      - frontend
   database:
     image: postgres:15-alpine
     container_name: lavurso-database
@@ -17,7 +26,6 @@ services:
     build: ./lavurso-backend
     environment:
       WEB_LISTEN: 0.0.0.0:8080
-      WEB_CORS_ALLOWED_ORIGINS: http://localhost:9000 # this is your public facing front-end URL, e.g. https://lavurso.localdomain
       DATABASE_HOST: database
       DATABASE_PORT: 5432
       DATABASE_USER: lavurso
@@ -26,8 +34,8 @@ services:
     # Docker image specific:
     # NO_MIGRATE=true
     # MIGRATE_TO=last
-    ports:
-      - 8888:8080
+    expose:
+      - 8080
   frontend:
     depends_on:
       - backend
@@ -36,6 +44,6 @@ services:
     build: ./lavurso-frontend
     init: true
     environment:
-      API_URL: http://localhost:8888 # This is your (public) back-end URL
-    ports:
-      - 9000:9000 # changing public facing port requires changing WEB_CORS_ALLOWED_ORIGINS
+      API_URL: http://192.168.68.42:9000/api/ # This is your (public) back-end URL, set it to your public URL
+    expose:
+      - 9000
