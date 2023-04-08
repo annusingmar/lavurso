@@ -44,6 +44,6 @@ services:
     build: ./lavurso-frontend
     init: true
     environment:
-      API_URL: http://192.168.68.42:9000/api/ # This is your (public) back-end URL, set it to your public URL
+      API_URL: http://localhost:9000/api/ # This is your (public) back-end URL, set it to your public URL
     expose:
       - 9000
